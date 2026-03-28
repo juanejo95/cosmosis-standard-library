@@ -9,6 +9,10 @@ PLANCK_DIR=plc-3.0
 RPATH_FLAGS=-Wl,-rpath,$(PWD)/$(PLANCK_DIR)/lib -Wl,-rpath,$(PWD)/$(PLANCK_DIR)/buildir
 USER_LDFLAGS=-L$(PLANCK_DIR)/lib -lcosmosis $(RPATH_FLAGS) -L$(CFITSIO_LIB) -lcfitsio $(LAPACK_LINK)
 
+ifeq ($(shell uname),Darwin)
+USER_LDFLAGS += -Wl,-undefined,dynamic_lookup
+endif
+
 PLANCK_LIB=lib/libclik.so
 USER_CFLAGS=-I$(PLANCK_DIR)/include  -D_GNU_SOURCE $(DEFINES)
 
