@@ -8,7 +8,4 @@ ifeq ($(OS),Darwin)
 # Allow unresolved symbols in module shared-library links on macOS; symbols
 # are resolved when loaded by the host process.
 export LDFLAGS += -Wl,-undefined,dynamic_lookup
-
-# Some in-tree makefiles use LDFLAG (without S), so export both forms.
-export LDFLAG += -Wl,-undefined,dynamic_lookup
 endif
