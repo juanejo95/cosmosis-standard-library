@@ -49,7 +49,9 @@ OMPFLAG   = -pthread #-fopenmp
 
 # all other compilation flags
 CCFLAG = -g -fPIC -I ${GSL_INC}
-LDFLAG = -g -fPIC
+LDFLAG ?=
+LDFLAG += -g -fPIC
+LDFLAG += $(LDFLAGS)
 
 # leave blank to compile without HyRec, or put path to HyRec directory
 # (with no slash at the end: e.g. "external/RecfastCLASS")

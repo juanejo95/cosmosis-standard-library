@@ -147,7 +147,7 @@ FFPIC = -fPIC
 
 # check here that the SHARED variable contain the correct invocation for your CC
 ifeq ($(OS),macos)
-SHARED = -dynamiclib
+SHARED = -dynamiclib -Wl,-undefined,dynamic_lookup
 else
 SHARED = -shared -Bdynamic
 endif

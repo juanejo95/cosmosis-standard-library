@@ -14,7 +14,7 @@ listobjects:
 objects: $(OBJECTS) $(SEPOBJ)
 
 $(MYLIB): $(OBJECTS)
-	$(CXX) $(CXXFLAGS) -shared -o $(CURDIR)/$(MYLIB) -L$(GSL_LIB) -lgsl $(OBJECTS)
+	$(CXX) $(CXXFLAGS) -shared -o $(CURDIR)/$(MYLIB) $(OBJECTS) $(LDFLAGS) -L$(GSL_LIB) -lgsl
 
 clusters.o: clusters.hpp util.hpp
 fgas.o: clusters.hpp fgas.hpp lensing.hpp util.hpp xray.hpp
