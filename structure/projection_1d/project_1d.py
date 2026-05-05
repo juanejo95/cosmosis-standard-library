@@ -147,7 +147,7 @@ def execute(block, config):
         cosmo_model_run = Flatw0waCDM(
             H0=block[names.cosmological_parameters, 'hubble'],
             Ob0=block[names.cosmological_parameters, 'omega_b'],
-            Om0=block[names.cosmological_parametersarams, 'omega_m'],
+            Om0=block[names.cosmological_parameters, 'omega_m'],
             m_nu=[0, 0, block[names.cosmological_parameters, 'mnu']],
             Tcmb0=tcmb, w0=block[names.cosmological_parameters, 'w'],
             wa=block[names.cosmological_parameters, 'wa']
