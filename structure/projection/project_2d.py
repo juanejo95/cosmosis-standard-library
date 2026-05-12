@@ -477,6 +477,22 @@ class Spectrum(object):
             chimin = max( K1.xmin_clipped, K2.xmin_clipped )
         if chimax is None:
             chimax = min( K1.xmax_clipped, K2.xmax_clipped )
+
+        # if there is only a very tiny overlap between
+        # the kernels then we should try without clipping
+        # in case there is a very small signal.
+        if chimin > chimax:
+            chimin = max( K1.xmin, K2.xmin )
+            chimax = min( K1.xmax, K2.xmax )
+
+        # If there is no overlap at all between the
+        # kernels even then then there is no signal
+        # so we should just return zeros.
+        if chimin > chimax:
+            c_ell = np.zeros(len(ell))
+            return c_ell
+
+
         if dlogchi is None:
             sig = min( K1.sigma/sig_over_dchi, K2.sigma/sig_over_dchi )
             # We want a maximum dchi that is sig / sig_over_dchi where sig is the
@@ -616,10 +632,27 @@ class LingalLingalSpectrum(Spectrum):
             chimin = max( K1.xmin_clipped, K2.xmin_clipped )
         if chimax is None:
             chimax = min( K1.xmax_clipped, K2.xmax_clipped )
+
+        # if there is only a very tiny overlap between
+        # the kernels then we should try without clipping
+        # in case there is a very small signal.
+        if chimin > chimax:
+            chimin = max( K1.xmin, K2.xmin )
+            chimax = min( K1.xmax, K2.xmax )
+
+        # If there is no overlap at all between the
+        # kernels even then then there is no density-density signal
+        # so we should just return zeros.
+        if chimin > chimax:
+            c_ell = np.zeros(len(ell))
+            return c_ell
+
+
         if dlogchi is None:
             sig = min(K1.sigma / sig_over_dchi, K2.sigma / sig_over_dchi)
             dchi = sig / sig_over_dchi
             dlogchi = get_dlogchi(dchi, chimax)
+
 
         # Exact calculation with linear P(k)
         if do_rsd:
