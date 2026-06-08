@@ -29,20 +29,19 @@ def setup(options):
 	desi_release = options.get_string(section, "desi_release", default="dr2")
 
 	if desi_release in ["dr1", "dr2"]:
-		default_chi2_file = "likelihood_DESY6_DR1tiles_noDESI.csv"
+		chi2_file = "likelihood_DESY6_DR1tiles_noDESI.csv"
 	elif desi_release in ["dr3", "dr4"]:
-		default_chi2_file = "likelihood_DESY6_deccut_noDESI.csv"
+		chi2_file = "likelihood_DESY6_deccut_noDESI.csv"
 	else:
 		raise ValueError(
 			f"Unknown desi_release='{desi_release}'. "
 			"Expected 'dr1', 'dr2', 'dr3' or 'dr4'."
 		)
 
-	print(f"Using {default_chi2_file} as chi2 file (assuming combination with DESI {desi_release.upper()} data).")
+	print(f"Using {chi2_file} as chi2 file (assuming combination with DESI {desi_release.upper()} data).")
 
 	# Determine the path to the chi2(alpha) file and load it
 	chi2_dir = options.get_string(section,"chi2_dir", default=default_chi2_dir)
-	chi2_file = options.get_string(section,"chi2_file", default=default_chi2_file)
 	chi2_path = os.path.join(chi2_dir, chi2_file)
 	chi2_data = np.loadtxt(chi2_path, delimiter=',', skiprows=1).T
 

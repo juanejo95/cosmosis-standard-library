@@ -28,10 +28,10 @@ params:
         meaning: Directory to find data file
         type: str
         default: Module directory
-    chi2_file:
-        meaning: Name of CSV data file within chi2_dir
+    desi_release:
+        meaning: DESI data release used to define footprint overlap removal (dr1/dr2 or dr3/dr4)
         type: str
-        default: likelihood_DESY6_DR1tiles_noDESI.csv
+        default: dr2
     chi2_column:
         meaning: Column to read for alpha from the file
         type: int
