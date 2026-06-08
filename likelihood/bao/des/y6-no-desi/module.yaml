@@ -1,10 +1,10 @@
 #This is a template for module description files
-name: des-y6-bao-dr1tilesnoDESI
+name: des-y6-bao-noDESI
 version: '1.0'
 category: BAO Likelihoods
-purpose: Compute the likelihood of DES Y6 BAO data removing the DESI-DR1 area. This likelihood is meant to be combined with DESI DR1 or DR2 BAO, but not with future DESI releases.
+purpose: Compute the likelihood for the DES Y6 BAO sample after removing the area overlapping with either the DESI DR1 footprint or the expected DESI DR4 footprint, as specified by the selected flag. This likelihood is intended to be combined with DESI DR1/DR2 BAO or DESI DR3/DR4 BAO measurements, respectively.
 url: ''
-interface: bao_y6_dr1tilesnoDESI_like.py
+interface: bao_y6_noDESI_like.py
 attribution: [DES Collaboration]
 rules: ''
 cite:
