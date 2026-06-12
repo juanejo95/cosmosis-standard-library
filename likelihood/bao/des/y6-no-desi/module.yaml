@@ -8,7 +8,7 @@ interface: bao_y6_noDESI_like.py
 attribution: [DES Collaboration]
 rules: ''
 cite:
--   "Mena-Fernández, J. et al., Phys. Rev. D 113, 123521"
+-   "Mena-Fernández, J. et al., Phys. Rev. D 113, 123521 (2026)"
 
 assumptions:
 -   BAO chi2
