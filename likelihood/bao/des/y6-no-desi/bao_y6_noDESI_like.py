@@ -38,7 +38,7 @@ def setup(options):
 			"Expected 'dr1', 'dr2', 'dr3' or 'dr4'."
 		)
 
-	print(f"Using {chi2_file} as chi2 file (assuming combination with DESI {desi_release.upper()} data).")
+	print(f"Using {chi2_file} as chi2 file (assuming combination with DESI {desi_release.upper()}).")
 
 	# Determine the path to the chi2(alpha) file and load it
 	chi2_dir = options.get_string(section,"chi2_dir", default=default_chi2_dir)
